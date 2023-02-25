@@ -4,6 +4,10 @@ import morgan from 'morgan'
 import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import clientRoutes from './routes/client'
+import generalRoutes from './routes/general'
+import managementRoutes from './routes/management'
+import salesRoutes from './routes/sales'
 
 
 // Configurations
@@ -16,3 +20,11 @@ app.use(morgan('common'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(cors())
+
+// Routes
+app.use('/client', clientRoutes)
+app.use('/general', generalRoutes)
+app.use('/management', managementRoutes)
+app.use('/sales', salesRoutes)
+
+
